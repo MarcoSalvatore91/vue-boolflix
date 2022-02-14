@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header @search="fetchMovie"/>
-    <Main :movies="movies" />
+    <Header @search="fetchMovie" />
+    <Main :movies="movies" :series="series" :getMovie="getMovie" />
   </div>
 </template>
 
@@ -13,27 +13,34 @@ import Main from "./components/Main.vue";
 export default {
   name: "App",
 
-  data() {
-    return {
-      movies: [],
-      api_key: "0fe42dceece4f3ca88e1c2b3123892c7",
-      query: "",
-    }
-  },
+    components: {
+      Header,
+      Main,
+    },
 
-  components: {
-    Header,
-    Main,
-  },
+    data() {
+      return {
+        movies: [],
+        series: [],
+        api_key: "0fe42dceece4f3ca88e1c2b3123892c7",
+        getMovie: "",
+      }
+    },
+
 
   methods: {
 
     fetchMovie(element) {
-      this.query = element;
-      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.api_key}&language=it-IT&query=${this.query}`).then((res) => {
+      this.getMovie = element;
+      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.api_key}&language=it-IT&query=${this.getMovie}`).then((res) => {
         this.movies = res.data.results;
       })
-    },
+
+      axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${this.api_key}&language=it-IT&query=${this.getMovie}`).then((res) => {
+        this.series = res.data.results;
+      })
+    }
+
     },
 
     mounted() {
