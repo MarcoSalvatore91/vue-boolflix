@@ -9,12 +9,9 @@
         <li>{{ movie.title }}</li>
         <li>{{ movie.original_title }}</li>
         <div>
-          <li v-if="movie.original_language === 'en'">
-            <img src="../assets/img/en.png" alt="England Flag">
+          <li v-if="movie.original_language === 'en' || movie.original_language === 'it'">
+            <img :src="require (`../assets/img/${movie.original_language}.png`)" :alt="`${movie.original_language}`">
           </li>
-          <li v-else-if="movie.original_language === 'it'">
-            <img src="../assets/img/it.png" alt="Italian Flag">
-          </li> 
           <li v-else>{{ movie.original_language }}</li>
         </div>
         <li>{{ movie.vote_average }}</li>
@@ -25,11 +22,8 @@
         <li>{{ serie.name }}</li>
         <li>{{ serie.original_name }}</li>
         <div>
-          <li v-if="serie.original_language === 'en'">
-            <img src="../assets/img/en.png" alt="England Flag">
-          </li>
-          <li v-else-if="serie.original_language === 'it'">
-            <img src="../assets/img/it.png" alt="Italian Flag">
+          <li v-if="serie.original_language === 'en' || serie.original_language === 'it'">
+            <img :src="require (`../assets/img/${serie.original_language}.png`)" :alt="`${serie.original_language}`">
           </li> 
           <li v-else>{{ serie.original_language }}</li>
         </div>
@@ -46,7 +40,7 @@ export default {
     props: ["movies", "series", "getMovie"],
 
     methods: {
-      
+      getElement() {}
     }
 }
 </script>
