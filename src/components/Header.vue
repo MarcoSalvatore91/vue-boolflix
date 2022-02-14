@@ -1,5 +1,8 @@
 <template>
-  
+    <div>
+        <input type="text">
+        <button>Cerca</button>
+    </div>
 </template>
 
 <script>
