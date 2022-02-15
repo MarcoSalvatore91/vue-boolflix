@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header @search="fetchMovie" />
-    <Main :movies="movies" :series="series" :getMovie="getMovie" />
+    <Main :movies="movies" :series="series" :getProducts="getProducts" />
   </div>
 </template>
 
@@ -23,7 +23,7 @@ export default {
         movies: [],
         series: [],
         api_key: "0fe42dceece4f3ca88e1c2b3123892c7",
-        getMovie: "",
+        getProducts: "",
       }
     },
 
@@ -32,13 +32,13 @@ export default {
 
     fetchMovie(element) {
 
-      this.getMovie = element;
+      this.getProducts = element;
 
-      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.api_key}&language=it-IT&query=${this.getMovie}`).then((res) => {
+      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.api_key}&language=it-IT&query=${this.getProducts}`).then((res) => {
         this.movies = res.data.results;
       })
 
-      axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${this.api_key}&language=it-IT&query=${this.getMovie}`).then((res) => {
+      axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${this.api_key}&language=it-IT&query=${this.getProducts}`).then((res) => {
         this.series = res.data.results;
       })
     }

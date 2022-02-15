@@ -1,7 +1,7 @@
 <template>
     <div>
-        <input v-model="getMovie" type="text" placeholder="Cosa vuoi guardare?">
-        <button @click="$emit('search', getMovie)">Cerca</button>
+        <input v-model="getProducts" type="text" placeholder="Cosa vuoi guardare?">
+        <button @click="$emit('search', getProducts)">Cerca</button>
     </div>
 </template>
 
@@ -11,7 +11,7 @@ export default {
 
     data() {
         return {
-            getMovie: "",
+            getProducts: "",
         }
     },
 
