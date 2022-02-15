@@ -31,7 +31,9 @@ export default {
   methods: {
 
     fetchMovie(element) {
+
       this.getMovie = element;
+
       axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.api_key}&language=it-IT&query=${this.getMovie}`).then((res) => {
         this.movies = res.data.results;
       })

@@ -1,9 +1,12 @@
 <template>
   <section>
+
     <div v-if="!getMovie">
       <p>Cerca un film o una serie TV</p>
     </div>
+
     <div v-else>
+
       <h1>Film</h1>
       <ul v-for="(movie, index) in movies" :key="index">
         <li>{{ movie.title }}</li>
@@ -15,6 +18,7 @@
           <li v-else>{{ movie.original_language }}</li>
         </div>
         <li>{{ movie.vote_average }}</li>
+        <li><img :src="`https://image.tmdb.org/t/p/w342/${movie.poster_path}`" alt=""></li>
       </ul> 
 
       <h1>Serie</h1>
@@ -28,6 +32,7 @@
           <li v-else>{{ serie.original_language }}</li>
         </div>
         <li>{{ serie.vote_average }}</li>
+        <li><img :src="`https://image.tmdb.org/t/p/w342/${serie.poster_path}`" alt=""></li>
       </ul>  
     </div>
   </section>
