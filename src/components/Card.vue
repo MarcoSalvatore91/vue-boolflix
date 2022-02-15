@@ -11,9 +11,10 @@
           </li>
           <li v-else>{{ item.original_language }}</li>
           <li>{{ item.vote_average / 2 }}</li>
+          <Star :item="item"/>
         </div>
       </div>
-      <div class="img-container">
+      <div class="img-container my-4">
         <div v-if="!item.poster_path">
           <li class="img-null">IMMAGINE NON DISPONIBILE</li>
         </div>
@@ -28,16 +29,29 @@
 </template>
 
 <script>
+import Star from "./Star.vue"
+
 export default {
     name: "Card",
 
-    data() {
-      return {
-        
-      }
+    components: {
+      Star,
     },
 
     props: ["item"],
+
+    data() {
+      return {
+        newVote: "",
+      }
+    },
+
+    methods: {
+      getVote() {
+        this.newVote = this.item.vote_average / 2;
+      }
+    }
+
     
 }
 </script>
