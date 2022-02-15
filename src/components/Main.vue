@@ -1,8 +1,8 @@
 <template>
   <section>
 
-    <div v-if="!getProducts">
-      <p>Cerca un film o una serie TV</p>
+    <div class="preview-search" v-if="!getProducts">
+      <h1 class="text-center fw-bold">Cerca un film o una serie TV</h1>
     </div>
 
     <div v-else>
@@ -43,5 +43,13 @@ export default {
 
 <style scoped lang="scss">
 @import '../assets/scss/style.scss';
+
+.preview-search {
+  height: calc(100vh - 100px);
+  background-color: grey;
+  h1 {
+    color: white;
+  }
+}
 
 </style>
