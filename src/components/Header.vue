@@ -21,10 +21,6 @@ export default {
             getProducts: "",
         }
     },
-
-    methods: {
-        
-    }
 }
 </script>
 

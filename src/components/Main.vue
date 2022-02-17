@@ -13,7 +13,7 @@
         <Card class="col-4" v-for="(movie, index) in movies" :key="index" :item="movie" />
       </div>
 
-      <h1 class="py-4">Serie</h1>
+      <h1 class="py-4 text-center">Serie</h1>
 
       <div class="row text-center">
         <Card class="col-4" v-for="(serie, index) in series" :key="index" :item="serie" />
@@ -34,10 +34,7 @@ export default {
     },
 
     props: ["movies", "series", "getProducts"],
-
-    methods: {
-      getElement() {}
-    }
+    
 }
 </script>
 

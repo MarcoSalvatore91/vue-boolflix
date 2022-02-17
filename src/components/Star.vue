@@ -1,8 +1,9 @@
 <template>
   <div>
     <div>
-        <i class="fa-solid fa-star" v-for="(star, index) in getStar()" :key="index"></i>
-        <i class="fa-regular fa-star" v-for="allStar in allGetStar()" :key="allStar"></i>
+        <i v-for="number in 5" :key="number"
+        class="fa-star"
+        :class="number <= getStar ? 'fa-solid' : 'fa-regular'"></i>
     </div>
   </div>
 </template>
@@ -13,19 +14,11 @@ export default {
 
     props: ["item"],
 
-    data() {
-        return {
-        }
-    },
-
-    methods: {
+    computed: {
         getStar() {
            return  Math.ceil(this.item.vote_average / 2);
         },
-        allGetStar() {
-            return 5 - this.getStar();
-        },
-    },
+    }
 }
 </script>
 

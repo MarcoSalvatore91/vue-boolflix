@@ -40,8 +40,8 @@ export default {
 
       axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${this.api_key}&language=it-IT&query=${this.getProducts}`).then((res) => {
         this.series = res.data.results;
-      })
-    }
+      })    
+    },
 
     },
 
